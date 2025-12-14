@@ -1,0 +1,45 @@
+{
+    "config": {
+        "jr3-port": {
+            "help": "NXP port both sensor data and clock pins belong to",
+            "required": true
+        },
+        "jr3-clock-pin": {
+            "help": "clock pin (F/T sensor)",
+            "required": true
+        },
+        "jr3-data-pin": {
+            "help": "data pin (F/T sensor)",
+            "required": true
+        },
+        "serial-baudrate": {
+            "help": "serial port baudrate",
+            "required": true
+        },
+        "serial-buffer-in-size": {
+            "help": "serial RX buffer size (bytes)",
+            "required": true
+        },
+        "serial-buffer-out-size": {
+            "help": "serial TX buffer size (bytes)",
+            "required": true
+        }
+    },
+    "target_overrides": {
+        "*": {
+            "platform.stdio-baud-rate": 115200,
+            "platform.stdio-buffered-serial": 1,
+            "platform.minimal-printf-enable-floating-point": true,
+            "platform.stdio-convert-newlines": false,
+            "platform.stdio-convert-tty-newlines": false
+        },
+        "LPC1768": {
+            "app.jr3-port": "Port0",
+            "app.jr3-clock-pin": "p9",
+            "app.jr3-data-pin": "p10",
+            "app.serial-baudrate": 115200,
+            "app.serial-buffer-in-size": 32,
+            "app.serial-buffer-out-size": 16
+        }
+    }
+}
