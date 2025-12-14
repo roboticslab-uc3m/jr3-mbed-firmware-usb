@@ -1,6 +1,8 @@
-# BufferedSerial Communication Protocol
+# JR3 Mbed firmware (USB interface)
 
-An application that implements a communication protocol over UART using the BufferedSerial class. The protocol defines the message structure for data transmission between a transmitter and a receiver in a serial communication system.
+An Arm Mbed OS 6 application that performs data acquisition from a JR3 force-torque sensor and streams it through a USB channel.
+
+Refer to [roboticslab-uc3m/jr3-mbed-firmware](https://github.com/roboticslab-uc3m/jr3-mbed-firmware/) for the underlying board-sensor communication. This repository focuses on the serial (USB) interface layer with an external PC. Refer to [roboticslab-uc3m/jr3-mbed-firmware-can](https://github.com/roboticslab-uc3m/jr3-mbed-firmware-can/) for the CANT interface variant.
 
 ## Communication Protocol
 
@@ -83,10 +85,9 @@ The frame counter is retained from the CAN protocol and helps ensure consistency
 
 Additionally, the command related to gripper control (PMW) was removed, as it is not relevant to this project. The synchronous mode was also eliminated since synchronization between multiple devices (as used in the TEO humanoid) is unnecessary here. This led to the unification of the `JR3_START` command into a single, streamlined version, improving overall performance and reducing unnecessary functions.
 
-
 ## Configuration
 
-See [mbed-app.json](mbed_app.json) for a list of configurable parameters and their description. The project should be recompiled after any changes to this file.
+See [mbed-app.json5](mbed_app.json5) for a list of configurable parameters and their description. The project should be recompiled after any changes to this file.
 
 ## Additional Tools
 
@@ -111,8 +112,7 @@ In this github you can access the python script (`main_fz.py`) used to communica
 
 If you found this project useful, please consider citing the following work:
 
-Olano Díaz, Alba (2024). Integración de un sensor fuerza-par en un robot industrial ABB. Universidad Carlos III de Madrid.
-
+Alba Olano Díaz, *Integración de un sensor fuerza-par en un robot industrial ABB*, Trabajo Fin de Grado, Universidad Carlos III de Madrid, 2024. https://github.com/albaod/jr3-mbed-firmware
 
 ```bibtex
 @inproceedings{
@@ -125,9 +125,7 @@ Olano Díaz, Alba (2024). Integración de un sensor fuerza-par en un robot indus
 
 ## See also
 
-- Łukawski, B., Rodríguez-Sanz, A., Victores, J., & Balaguer, C. (2024). An open-source implementation of a force-torque sensor data acquisition device for the humanoid robot TEO. In Actas del Simposio de Robótica, Bioingeniería y Visión por Computador (pp. 79–84). Universidad de Extremadura.
-- Alberto López Esteban, *Diseño y desarrollo de un módulo de conexión a CANopen de un sensor comercial fuerza/par*, bachelor's thesis, Universidad Carlos III de Madrid, 2011
-- Carlos de la Hoz Najarro, *Puesta en marcha del sensor fuerza/par JR3*, bachelor's thesis, Universidad Carlos III de Madrid, 2011
-- Javier Berrocal, *Design and implementation of a data acquisition system for force/torque sensors*, master's thesis, Universidad Carlos III de Madrid, 2019
+- <https://github.com/roboticslab-uc3m/jr3-mbed-firmware/>
+- <https://github.com/roboticslab-uc3m/jr3-mbed-firmware-can/>
 - <https://github.com/roboticslab-uc3m/yarp-devices/issues/263>
-- https://github.com/roboticslab-uc3m/jr3pci-linux/
+- <https://github.com/roboticslab-uc3m/jr3pci-linux/>
